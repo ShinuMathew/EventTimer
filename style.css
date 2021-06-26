@@ -5,7 +5,48 @@
 }
 
 body {
-    font-family: "Lato", "Helvetica Neue",;    
+    font-family: "Lato", "Helvetica Neue" !important;
+    background-color:rgba(0, 0, 0, 0.301);
+    --primary-color : rgba(238, 144, 120, 0.774);
+    --primary-text-color : rgba(253, 253, 253, 0.856);
+    --secondary-text-color : rgb(9, 133, 67);
+}
+
+header {
+    width: 100vw;
+    height: 10vh;
+    background-color :rgba(0, 0, 0, 0.589)
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+}
+
+.brand {
+    padding-left : 20px;
+    padding-top : 10px;
+}
+
+.brand img {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+}
+
+.main-header {
+    width : 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    align-items: center;
+}
+
+.main-header h2 {
+    font-size: 50px;
+    color: rgba(255, 255, 255, 0.829);
+    align-self: center;
+    letter-spacing: 0.5rem;
 }
 
 .coming-soon {
@@ -17,25 +58,40 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content:space-evenly;    
+    justify-content:space-around;   
+    animation : blur 2s linear forwards; 
+}
+
+@keyframes blur {
+    0% {
+        filter: blur(5px)
+    }
+    100% {
+        filter: blur(0px)
+    }
 }
 
 .coming-soon h2 {
-    font-size:8rem;
+    font-size:6rem;
     letter-spacing:0.5rem;
-    color: rgba(238, 203, 5, 0.877);
+    color: var(--primary-text-color);
+    margin: 30px;
+}
+
+.coming-soon h2 strong {
+    color: var(--secondary-text-color);
 }
 
 .countdown {
     display:flex;
     flex-direction:row;
     align-items:center; 
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
 .countdown h3 {
     font-size:3rem;
-    color: rgb(233, 140, 53)
+    color: var(--primary-color);
 }
 
 .container {
@@ -46,14 +102,20 @@ body {
 }
 
 .time {
-    height: 90px;
-    width: 90px;
-    background-color: rgba(231, 145, 65, 0.767);
+    height: 120px;
+    width: 150px;
+    background-color: var(--primary-color);
     border-radius:20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;        
+}
+
+.time h3 {
+    padding:0;
+    margin:0;    
+    font-family: "Lato", "Helvetica Neue" !important;
 }
 
 .flapped {
@@ -73,4 +135,37 @@ body {
 
 .time h3 {
     color:rgba(0, 0, 0, 0.692)
+}
+
+.timer-text  {
+    animation : fade 4s linear forwards;
+}
+
+.countdown {
+    animation : appear 6s linear forwards;
+    font-family: "Lato", "Helvetica Neue" !important;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
