@@ -58,7 +58,7 @@ function handleDataAvailable(event) {
 
 function startRecording() {
   recordedBlobs = [];
-  let options = {mimeType: 'video/webm;codecs=vp8'};
+  let options = {mimeType: 'video/webm'};
   try {
     mediaRecorder = new MediaRecorder(window.stream, options);
   } catch (e) {
