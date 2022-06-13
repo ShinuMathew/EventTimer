@@ -107,10 +107,10 @@ document.querySelector('button#start').addEventListener('click', async () => {
   const hasEchoCancellation = document.querySelector('#echoCancellation').checked;
   const constraints = {
     audio: {
-      echoCancellation: {exact: hasEchoCancellation}
+      // echoCancellation: {exact: hasEchoCancellation}
     },
     video: {
-      width: 180, height: 120
+      width: 640, frameRate: 15
     }
   };
   console.log('Using media constraints:', constraints);
