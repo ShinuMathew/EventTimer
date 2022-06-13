@@ -58,7 +58,7 @@ function handleDataAvailable(event) {
 
 function startRecording() {
   recordedBlobs = [];
-  let options = {mimeType: 'video/webm;codecs=vp9,opus'};
+  let options = {mimeType: 'video/webm;codecs=vp8'};
   try {
     mediaRecorder = new MediaRecorder(window.stream, options);
   } catch (e) {
@@ -96,10 +96,21 @@ function handleSuccess(stream) {
 async function init(constraints) {
   try {
     const stream = await navigator.mediaDevices.getUserMedia(constraints);
-    handleSuccess(stream);
+    handleSuccess(stream);    
+    let constr = navigator.mediaDevices.getSupportedConstraints()
+    let co = ""
+    for(let c in constr) {
+      co += c+": "+constr[c]+", "
+    }
+    errorMsgElement.innerHTML = `navigator.getUserMedia error: ${co}`;
   } catch (e) {
+    let constr = navigator.mediaDevices.getSupportedConstraints()
+    let co = ""
+    for(let c in constr) {
+      co += c+": "+constr[c]+", "
+    }
     console.error('navigator.getUserMedia error:', e);
-    errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
+    errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()} `;
   }
 }
 
