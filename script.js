@@ -57,10 +57,12 @@ function handleDataAvailable(event) {
 }
 
 function startRecording() {
+  var canvas = document.querySelector("canvas");
+  var stream = canvas.captureStream(25);
   recordedBlobs = [];
-  let options = {mimeType: 'video/webm'};
+  let options = {mimeType: 'video/webm;codecs=vp9,opus'};
   try {
-    mediaRecorder = new MediaRecorder(window.stream, options);
+    mediaRecorder = new MediaRecorder(stream, options);
   } catch (e) {
     console.error('Exception while creating MediaRecorder:', e);
     errorMsgElement.innerHTML = `Exception while creating MediaRecorder: ${JSON.stringify(e)}`;
